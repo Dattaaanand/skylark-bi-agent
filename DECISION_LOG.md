@@ -56,6 +56,8 @@
   the tool-calling logic fully under my control (custom normalization,
   custom pagination, custom error messages) rather than being shaped by
   whatever an off-the-shelf MCP server exposes.
+- **Custom Markdown Renderers (react-markdown) instead of `@tailwindcss/typography`:** I chose to define custom React rendering tags (for tables, headers, and code blocks) instead of using the standard Tailwind typography plugin. This allowed us to build highly customized tables for BI data and implement a stateful "Copy Code" interactive button, keeping the bundle clean and styling precise.
+- **Shadcn-like Dark Theme Redesign:** Replaced the light cream theme with a premium, zinc-based dark theme, mimicking shadcn/ui. I mapped colors like `paper`, `ink`, and `line` directly to Zinc-950, Zinc-50, and Zinc-800 so the layout adapts seamlessly, and used a crisp emerald green (`brand` / `brandSoft`) to keep a subtle drone brand identifier.
 
 ## How I interpreted "the agent should help prepare data for leadership updates"
 

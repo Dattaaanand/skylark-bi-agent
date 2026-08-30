@@ -1,11 +1,11 @@
 export default function TypingIndicator() {
   return (
     <div className="flex justify-start">
-      <div className="flex items-center gap-1.5 rounded-2xl rounded-bl-sm border border-line bg-white px-4 py-3">
+      <div className="flex items-center gap-1.5 rounded-2xl rounded-bl-sm border border-line bg-zinc-900/50 px-4 py-3">
         {[0, 1, 2].map((i) => (
           <span
             key={i}
-            className="h-1.5 w-1.5 animate-bounce rounded-full bg-ink/30"
+            className="h-1.5 w-1.5 animate-bounce rounded-full bg-zinc-500"
             style={{ animationDelay: `${i * 120}ms` }}
           />
         ))}

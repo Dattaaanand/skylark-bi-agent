@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #c9c5b8 transparent;
+  scrollbar-color: #3f3f46 transparent;
 }
 
 ::selection {
-  background: #2e5339;
-  color: #f6f5f1;
+  background: #064E3B; /* brandSoft */
+  color: #FAFAFA; /* ink */
 }
 
 @media (prefers-reduced-motion: reduce) {

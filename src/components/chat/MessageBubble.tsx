@@ -19,17 +19,17 @@ function CodeBlock({ language, value }: { language: string; value: string }) {
   };
 
   return (
-    <div className="my-3 overflow-hidden rounded-lg border border-line bg-paper/50">
-      <div className="flex items-center justify-between border-b border-line bg-paper/80 px-3 py-1.5 text-[11px] font-mono text-ink/60">
+    <div className="my-3 overflow-hidden rounded-lg border border-line bg-zinc-950/40">
+      <div className="flex items-center justify-between border-b border-line bg-zinc-900 px-3 py-1.5 text-[11px] font-mono text-zinc-400">
         <span>{language || "code"}</span>
         <button
           type="button"
           onClick={handleCopy}
-          className="flex items-center gap-1 rounded px-1.5 py-0.5 hover:bg-line/40 hover:text-ink transition"
+          className="flex items-center gap-1 rounded px-1.5 py-0.5 hover:bg-zinc-800 hover:text-zinc-100 transition"
         >
           {copied ? (
             <>
-              <svg className="h-3 w-3 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+              <svg className="h-3 w-3 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
               <span>Copied!</span>
@@ -44,7 +44,7 @@ function CodeBlock({ language, value }: { language: string; value: string }) {
           )}
         </button>
       </div>
-      <pre className="overflow-x-auto p-3 font-mono text-[12.5px] leading-relaxed text-ink/90">
+      <pre className="overflow-x-auto p-3 font-mono text-[12.5px] leading-relaxed text-zinc-300">
         <code>{value}</code>
       </pre>
     </div>
@@ -88,8 +88,8 @@ export default function MessageBubble({ role, content }: ChatMessage) {
           <code
             className={
               isUser
-                ? "rounded bg-white/15 px-1 py-0.5 font-mono text-[12.5px] text-white"
-                : "rounded bg-accentSoft/40 px-1.5 py-0.5 font-mono text-[12.5px] text-accent font-medium"
+                ? "rounded bg-black/10 px-1 py-0.5 font-mono text-[12px] text-zinc-950 font-medium"
+                : "rounded bg-zinc-800 px-1.5 py-0.5 font-mono text-[12px] text-zinc-200"
             }
             {...props}
           >
@@ -106,29 +106,29 @@ export default function MessageBubble({ role, content }: ChatMessage) {
     },
     table({ children }: any) {
       return (
-        <div className="my-3.5 w-full overflow-x-auto rounded-lg border border-line bg-white shadow-sm">
+        <div className="my-3.5 w-full overflow-x-auto rounded-lg border border-line bg-zinc-950/50 shadow-sm">
           <table className="w-full border-collapse text-left text-[13px]">{children}</table>
         </div>
       );
     },
     thead({ children }: any) {
-      return <thead className="border-b border-line bg-paper/60 font-medium text-ink/75">{children}</thead>;
+      return <thead className="border-b border-line bg-zinc-900 font-medium text-zinc-300">{children}</thead>;
     },
     tbody({ children }: any) {
       return <tbody className="divide-y divide-line/40">{children}</tbody>;
     },
     tr({ children }: any) {
-      return <tr className="hover:bg-accentSoft/5 transition-colors">{children}</tr>;
+      return <tr className="hover:bg-zinc-900/40 transition-colors">{children}</tr>;
     },
     th({ children }: any) {
       return <th className="px-3.5 py-2.5 font-semibold">{children}</th>;
     },
     td({ children }: any) {
-      return <td className="px-3.5 py-2.5 text-ink/80 leading-normal">{children}</td>;
+      return <td className="px-3.5 py-2.5 text-zinc-300 leading-normal">{children}</td>;
     },
     blockquote({ children }: any) {
       return (
-        <blockquote className="my-2.5 border-l-2 border-accent pl-3.5 italic text-ink/70">
+        <blockquote className="my-2.5 border-l-2 border-brand pl-3.5 italic text-zinc-400">
           {children}
         </blockquote>
       );
@@ -141,8 +141,8 @@ export default function MessageBubble({ role, content }: ChatMessage) {
           rel="noopener noreferrer"
           className={
             isUser
-              ? "text-white underline hover:text-white/80 transition"
-              : "text-accent underline hover:text-accent/80 transition"
+              ? "text-zinc-950 underline hover:text-zinc-800 transition"
+              : "text-brand underline hover:text-brand/80 transition"
           }
         >
           {children}
@@ -150,7 +150,7 @@ export default function MessageBubble({ role, content }: ChatMessage) {
       );
     },
     strong({ children }: any) {
-      return <strong className={isUser ? "font-semibold" : "font-semibold text-ink"}>{children}</strong>;
+      return <strong className={isUser ? "font-semibold text-zinc-950" : "font-semibold text-zinc-50"}>{children}</strong>;
     },
   };
 
@@ -159,8 +159,8 @@ export default function MessageBubble({ role, content }: ChatMessage) {
       <div
         className={
           isUser
-            ? "max-w-[85%] rounded-2xl rounded-br-sm bg-accent px-4 py-2.5 text-[14.5px] leading-relaxed text-paper"
-            : "max-w-[85%] rounded-2xl rounded-bl-sm border border-line bg-white px-4 py-2.5 text-[14.5px] leading-relaxed text-ink"
+            ? "max-w-[85%] rounded-2xl rounded-br-sm bg-accent px-4 py-2.5 text-[14px] leading-relaxed text-paper"
+            : "max-w-[85%] rounded-2xl rounded-bl-sm border border-line bg-zinc-900/50 px-4 py-2.5 text-[14px] leading-relaxed text-ink"
         }
       >
         <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>

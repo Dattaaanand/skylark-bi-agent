@@ -5,13 +5,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#161A1D",
-        paper: "#F6F5F1",
-        line: "#DBD8CF",
-        accent: "#2E5339", // deep field green — nods to drone/aerial survey work
-        accentSoft: "#DCE6DE",
-        rust: "#B3542C", // warning / low-confidence accent
-        sky: "#3B6E8F", // info accent
+        ink: "#FAFAFA", // zinc-50 (foreground text)
+        paper: "#09090B", // zinc-950 (background)
+        line: "#27272A", // zinc-800 (border)
+        accent: "#FAFAFA", // zinc-50 (primary theme accent)
+        accentSoft: "#27272A", // zinc-800 (secondary background)
+        rust: "#EF4444", // red-500 (destructive / warning)
+        sky: "#3B82F6", // blue-500 (info accent)
+        brand: "#10B981", // emerald-500 (drone / aerial survey brand green)
+        brandSoft: "#064E3B", // emerald-950 (subtle green branding)
       },
       fontFamily: {
         display: ["var(--font-display)"],

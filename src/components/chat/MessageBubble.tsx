@@ -99,7 +99,7 @@ export default function MessageBubble({ role, content }: ChatMessage) {
       }
       return (
         <CodeBlock
-          language={match ? match[1] : ""}
+          language={match?.[1] ?? ""}
           value={String(children).replace(/\n$/, "")}
         />
       );

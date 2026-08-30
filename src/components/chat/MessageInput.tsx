@@ -1,0 +1,48 @@
+"use client";
+
+import { useState, KeyboardEvent } from "react";
+
+interface MessageInputProps {
+  onSend: (text: string) => void;
+  disabled?: boolean;
+}
+
+export default function MessageInput({ onSend, disabled }: MessageInputProps) {
+  const [value, setValue] = useState("");
+
+  function submit() {
+    const trimmed = value.trim();
+    if (!trimmed || disabled) return;
+    onSend(trimmed);
+    setValue("");
+  }
+
+  function handleKeyDown(e: KeyboardEvent<HTMLTextAreaElement>) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      submit();
+    }
+  }
+
+  return (
+    <div className="flex items-end gap-2 border-t border-line bg-paper pt-3">
+      <textarea
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        onKeyDown={handleKeyDown}
+        disabled={disabled}
+        rows={1}
+        placeholder="Ask about pipeline, deals, or work orders…"
+        className="max-h-32 flex-1 resize-none rounded-xl border border-line bg-white px-3.5 py-2.5 text-[14.5px] leading-relaxed text-ink placeholder:text-ink/35 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent disabled:opacity-60"
+      />
+      <button
+        type="button"
+        onClick={submit}
+        disabled={disabled || !value.trim()}
+        className="h-[42px] shrink-0 rounded-xl bg-accent px-4 text-[13px] font-medium text-paper transition hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-40"
+      >
+        Send
+      </button>
+    </div>
+  );
+}
